@@ -2,6 +2,7 @@
 import { X, Minus, Plus, Trash2 } from "lucide-react";
 import { useCart } from "@/lib/cart";
 import { useI18n } from "@/lib/i18n";
+import Image from "next/image";
 
 export function CartDrawer() {
   const { items, open, setOpen, remove, setQty, total, count } = useCart();
@@ -40,7 +41,7 @@ export function CartDrawer() {
           ) : (
             items.map((i) => (
               <div key={i.id} className="flex gap-4 p-3 rounded-xl glass luxe-border">
-                <img src={i.image} alt={i.title} className="h-20 w-20 object-cover rounded-lg" />
+                <Image src={i.image} alt={i.title} className="h-20 w-20 object-cover rounded-lg" />
                 <div className="flex-1 min-w-0">
                   <div className="text-sm font-medium truncate">{i.title}</div>
                   <div className="text-primary font-semibold">${i.price.toLocaleString()}</div>
